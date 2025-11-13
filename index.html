@@ -1367,6 +1367,20 @@
             display: block !important;
         }
 
+        /* Sistema de Navegação SPA - Seções */
+        .page-section {
+            display: none;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        .page-section.home-section {
+            display: block;
+        }
+
         /* Melhorar área de toque do botão em mobile */
         @media (max-width: 767px) {
             .menu-toggle-button {
@@ -1829,6 +1843,30 @@
             }
         }
 
+        /* Responsividade para seção Quem Somos */
+        @media (max-width: 767px) {
+            #quem-somos .gallery-container > div {
+                padding: 2rem 1.5rem !important;
+                margin-bottom: 3rem !important;
+            }
+            
+            #quem-somos h3 {
+                font-size: 1.75rem !important;
+            }
+            
+            #quem-somos [style*="grid-template-columns"] {
+                grid-template-columns: 1fr !important;
+            }
+            
+            #quem-somos [style*="minmax(250px"] {
+                min-width: 100% !important;
+            }
+            
+            #quem-somos [style*="minmax(280px"] {
+                min-width: 100% !important;
+            }
+        }
+
         /* ANIMAÇÕES */
         @keyframes fadeInUp {
             from {
@@ -1894,10 +1932,10 @@
             </a>
             
             <nav class="desktop-nav">
-                <a href="index.html" class="active">Home</a>
-                <a href="#quem-somos">Quem Somos</a>
-                <a href="#servicos">Serviços</a>
-                <a href="#contato">Contato</a>
+                <a href="#" data-page="home" class="active">Home</a>
+                <a href="#" data-page="quem-somos">Quem Somos</a>
+                <a href="#" data-page="servicos">Serviços</a>
+                <a href="#" data-page="contato">Contato</a>
             </nav>
 
             <div class="header-controls">
@@ -1919,19 +1957,19 @@
         </div>
 
         <nav id="mobile-menu" class="mobile-nav hidden">
-            <a href="index.html" class="active">
+            <a href="#" data-page="home" class="active">
                 <i class="fa-solid fa-home"></i>
                 <span>Home</span>
             </a>
-            <a href="#quem-somos">
+            <a href="#" data-page="quem-somos">
                 <i class="fa-solid fa-users"></i>
                 <span>Quem Somos</span>
             </a>
-            <a href="#servicos">
+            <a href="#" data-page="servicos">
                 <i class="fa-solid fa-briefcase"></i>
                 <span>Serviços</span>
             </a>
-            <a href="#contato">
+            <a href="#" data-page="contato">
                 <i class="fa-solid fa-envelope"></i>
                 <span>Contato</span>
             </a>
@@ -1939,6 +1977,8 @@
     </header>
 
     <main>
+        <!-- SEÇÃO HOME (mostra tudo) -->
+        <div id="page-home" class="page-section home-section">
         <section class="hero-section hero-home-background">
             <div class="hero-content">
                 <div class="hero-badge">
@@ -1952,11 +1992,11 @@
                 </h1>
                 <p class="hero-subtitle">Soluções inovadoras que unem tecnologia, compromisso e propósito para criar um ambiente mais saudável e sustentável.</p>
                 <div class="hero-buttons">
-                    <a href="#servicos" class="hero-btn hero-btn-primary">
+                    <a href="#" data-page="servicos" class="hero-btn hero-btn-primary">
                         <span>Nossos Serviços</span>
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
-                    <a href="#contato" class="hero-btn hero-btn-secondary">
+                    <a href="#" data-page="contato" class="hero-btn hero-btn-secondary">
                         <span>Fale Conosco</span>
                         <i class="fa-solid fa-phone"></i>
                     </a>
@@ -1999,12 +2039,12 @@
                 <div class="mission-text-small">
                     <p>A MRRT transforma o setor de saneamento por meio de tecnologia, eficiência e compromisso social, promovendo desenvolvimento sustentável, inovação e qualidade de vida nas comunidades onde atua.</p>
                     
-                    <a href="#quem-somos" class="mission-button">SOBRE A MRRT</a>
+                    <a href="#" data-page="quem-somos" class="mission-button">SOBRE A MRRT</a>
                 </div>
             </div>
         </section>
         
-        <section id="servicos" class="services-section">
+        <section id="servicos-home" class="services-section">
             <div class="services-container">
                 <div class="services-content-wrapper"> 
                     <div class="services-text-column">
@@ -2025,7 +2065,7 @@
                             <p>Consultoria técnica, cadastro de redes, ações sociais e ambientais, garantindo o engajamento e a conformidade.</p>
                         </div>
 
-                        <a href="#contato" class="cta-button">Fale Conosco</a>
+                        <a href="#" data-page="contato" class="cta-button">Fale Conosco</a>
                     </div>
                 </div>
 
@@ -2076,20 +2116,168 @@
             </div>
         </section>
 
-        <section id="quem-somos" class="gallery-section">
-            <div class="gallery-container">
+        <section id="quem-somos-home" class="gallery-section" style="background: linear-gradient(180deg, var(--white) 0%, var(--mrrt-light) 100%);">
+            <div class="gallery-container" style="max-width: 1200px;">
+                
+                <!-- TÍTULO PRINCIPAL -->
                 <div class="gallery-header">
                     <h2 class="gallery-title">Quem Somos</h2>
-                    <p class="gallery-subtitle">A MRRT é uma empresa dedicada à prestação de serviços em saneamento básico, atuando com compromisso, excelência e responsabilidade.</p>
                 </div>
-                <div style="max-width: 900px; margin: 0 auto; text-align: center; padding: 2rem;">
-                    <p style="font-size: 1.1rem; color: var(--gray-700); line-height: 1.8; margin-bottom: 2rem;">
-                        Nosso propósito é contribuir para a melhoria da qualidade de vida das pessoas e comunidades, promovendo um ambiente mais limpo, saudável e sustentável.
-                    </p>
-                    <p style="font-size: 1.1rem; color: var(--gray-700); line-height: 1.8;">
-                        A MRRT existe para servir com propósito. Nossa missão é clara: <strong style="color: var(--mrrt-teal);">honrar a Deus, valorizar a família e gerar resultados que transformam vidas.</strong>
+
+                <!-- SOBRE A MRRT -->
+                <div style="max-width: 900px; margin: 0 auto 4rem; padding: 3rem 2rem; background: var(--white); border-radius: var(--radius-2xl); box-shadow: var(--shadow-lg);">
+                    <h3 style="font-size: 2rem; font-weight: 800; color: var(--mrrt-dark); margin-bottom: 1.5rem; text-align: center; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                        Sobre a MRRT
+                    </h3>
+                    <p style="font-size: 1.1rem; color: var(--gray-700); line-height: 1.8; text-align: center;">
+                        A MRRT é uma empresa dedicada à prestação de serviços em saneamento básico, atuando com compromisso, excelência e responsabilidade. Nosso propósito é contribuir para a melhoria da qualidade de vida das pessoas e comunidades, promovendo um ambiente mais limpo, saudável e sustentável.
                     </p>
                 </div>
+
+                <!-- O QUE FAZEMOS -->
+                <div style="max-width: 1200px; margin: 0 auto 4rem; padding: 3rem 2rem; background: linear-gradient(135deg, var(--mrrt-light) 0%, var(--white) 100%); border-radius: var(--radius-2xl); box-shadow: var(--shadow-lg); border: 2px solid var(--mrrt-teal-light);">
+                    <h3 style="font-size: 2rem; font-weight: 800; color: var(--mrrt-dark); margin-bottom: 1rem; text-align: center; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                        O Que Fazemos?
+                    </h3>
+                    <p style="text-align: center; margin-bottom: 2.5rem; font-size: 1.1rem; color: var(--gray-700);">
+                        Oferecemos soluções completas em saneamento básico, abrangendo:
+                    </p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                        <div style="background: var(--white); padding: 2rem 1.5rem; border-radius: var(--radius-xl); box-shadow: var(--shadow-md); border: 2px solid var(--gray-200); transition: all var(--transition-base); border-left: 4px solid var(--mrrt-teal);">
+                            <h4 style="font-size: 1.25rem; font-weight: 700; color: var(--mrrt-teal); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fa-solid fa-users"></i>
+                                Serviços Sociais
+                            </h4>
+                            <p style="font-size: 1rem; color: var(--gray-700); line-height: 1.7; margin: 0;">
+                                Apoio e orientação à comunidade, promovendo ações que fortalecem o relacionamento e o bem-estar das pessoas atendidas.
+                            </p>
+                        </div>
+                        <div style="background: var(--white); padding: 2rem 1.5rem; border-radius: var(--radius-xl); box-shadow: var(--shadow-md); border: 2px solid var(--gray-200); transition: all var(--transition-base); border-left: 4px solid var(--mrrt-teal);">
+                            <h4 style="font-size: 1.25rem; font-weight: 700; color: var(--mrrt-teal); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fa-solid fa-handshake"></i>
+                                Serviços Comerciais
+                            </h4>
+                            <p style="font-size: 1rem; color: var(--gray-700); line-height: 1.7; margin: 0;">
+                                Atendimento e suporte ao cliente com excelência, garantindo transparência e eficiência em todas as interações comerciais.
+                            </p>
+                        </div>
+                        <div style="background: var(--white); padding: 2rem 1.5rem; border-radius: var(--radius-xl); box-shadow: var(--shadow-md); border: 2px solid var(--gray-200); transition: all var(--transition-base); border-left: 4px solid var(--mrrt-teal);">
+                            <h4 style="font-size: 1.25rem; font-weight: 700; color: var(--mrrt-teal); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fa-solid fa-bullhorn"></i>
+                                Serviços de Comunicação
+                            </h4>
+                            <p style="font-size: 1rem; color: var(--gray-700); line-height: 1.7; margin: 0;">
+                                Transparência e clareza nas informações, mantendo canais abertos e eficientes de comunicação com clientes e comunidades.
+                            </p>
+                        </div>
+                        <div style="background: var(--white); padding: 2rem 1.5rem; border-radius: var(--radius-xl); box-shadow: var(--shadow-md); border: 2px solid var(--gray-200); transition: all var(--transition-base); border-left: 4px solid var(--mrrt-teal);">
+                            <h4 style="font-size: 1.25rem; font-weight: 700; color: var(--mrrt-teal); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fa-solid fa-helmet-safety"></i>
+                                Serviços Operacionais
+                            </h4>
+                            <p style="font-size: 1rem; color: var(--gray-700); line-height: 1.7; margin: 0;">
+                                Execução prática e eficiente em todas as frentes do saneamento, unindo técnica, dedicação e inovação para entregar resultados consistentes.
+                            </p>
+                        </div>
+                    </div>
+                    <p style="text-align: center; margin-top: 2rem; font-size: 1.05rem; color: var(--gray-700); font-style: italic;">
+                        Nosso trabalho busca unir técnica, dedicação e inovação para entregar resultados consistentes.
+                    </p>
+                </div>
+
+                <!-- NOSSOS PRINCÍPIOS -->
+                <div style="max-width: 1200px; margin: 0 auto 4rem; padding: 3rem 2rem; background: var(--white); border-radius: var(--radius-2xl); box-shadow: var(--shadow-lg);">
+                    <h3 style="font-size: 2rem; font-weight: 800; color: var(--mrrt-dark); margin-bottom: 1rem; text-align: center; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                        Nossos Princípios
+                    </h3>
+                    <p style="text-align: center; margin-bottom: 2.5rem; font-size: 1.1rem; color: var(--gray-700);">
+                        A MRRT é guiada por três fundamentos que norteiam todas as nossas ações:
+                    </p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                        <div style="background: linear-gradient(135deg, var(--mrrt-teal-light) 0%, var(--white) 100%); padding: 2.5rem 2rem; border-radius: var(--radius-xl); box-shadow: var(--shadow-md); border: 2px solid var(--mrrt-teal-light); text-align: center; transition: all var(--transition-base);">
+                            <div style="width: 80px; height: 80px; background: var(--gradient-teal); border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; box-shadow: var(--shadow-teal);">
+                                <i class="fa-solid fa-church" style="font-size: 2rem; color: var(--white);"></i>
+                            </div>
+                            <h4 style="font-size: 1.5rem; font-weight: 800; color: var(--mrrt-dark); margin-bottom: 1rem;">
+                                Deus
+                            </h4>
+                            <p style="font-size: 1rem; color: var(--gray-700); line-height: 1.7; margin: 0;">
+                                A base de nossos valores e decisões. Nossa fé nos orienta em cada escolha e ação, garantindo integridade e propósito em tudo que fazemos.
+                            </p>
+                        </div>
+                        <div style="background: linear-gradient(135deg, var(--mrrt-teal-light) 0%, var(--white) 100%); padding: 2.5rem 2rem; border-radius: var(--radius-xl); box-shadow: var(--shadow-md); border: 2px solid var(--mrrt-teal-light); text-align: center; transition: all var(--transition-base);">
+                            <div style="width: 80px; height: 80px; background: var(--gradient-teal); border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; box-shadow: var(--shadow-teal);">
+                                <i class="fa-solid fa-heart" style="font-size: 2rem; color: var(--white);"></i>
+                            </div>
+                            <h4 style="font-size: 1.5rem; font-weight: 800; color: var(--mrrt-dark); margin-bottom: 1rem;">
+                                Família
+                            </h4>
+                            <p style="font-size: 1rem; color: var(--gray-700); line-height: 1.7; margin: 0;">
+                                O alicerce da sociedade e inspiração para o cuidado com cada cliente e comunidade. Tratamos todos com o respeito e atenção que dedicamos à nossa própria família.
+                            </p>
+                        </div>
+                        <div style="background: linear-gradient(135deg, var(--mrrt-teal-light) 0%, var(--white) 100%); padding: 2.5rem 2rem; border-radius: var(--radius-xl); box-shadow: var(--shadow-md); border: 2px solid var(--mrrt-teal-light); text-align: center; transition: all var(--transition-base);">
+                            <div style="width: 80px; height: 80px; background: var(--gradient-teal); border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; box-shadow: var(--shadow-teal);">
+                                <i class="fa-solid fa-chart-line" style="font-size: 2rem; color: var(--white);"></i>
+                            </div>
+                            <h4 style="font-size: 1.5rem; font-weight: 800; color: var(--mrrt-dark); margin-bottom: 1rem;">
+                                Resultados
+                            </h4>
+                            <p style="font-size: 1rem; color: var(--gray-700); line-height: 1.7; margin: 0;">
+                                Compromisso em transformar esforço em conquistas visíveis e relevantes. Buscamos sempre a excelência e o impacto positivo em cada projeto.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- O QUE ESPERAMOS ALCANÇAR -->
+                <div style="max-width: 900px; margin: 0 auto 4rem; padding: 3rem 2rem; background: linear-gradient(135deg, var(--mrrt-light) 0%, var(--white) 100%); border-radius: var(--radius-2xl); box-shadow: var(--shadow-lg); border: 2px solid var(--mrrt-teal-light);">
+                    <h3 style="font-size: 2rem; font-weight: 800; color: var(--mrrt-dark); margin-bottom: 1.5rem; text-align: center; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                        O Que Esperamos Alcançar
+                    </h3>
+                    <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem; color: var(--gray-700);">
+                        Nosso objetivo é crescer lado a lado com nossos clientes e parceiros, conquistando:
+                    </p>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div style="padding: 1.5rem; background: var(--white); border-radius: var(--radius-lg); border-left: 4px solid var(--mrrt-teal); box-shadow: var(--shadow-sm);">
+                            <strong style="color: var(--mrrt-teal); display: block; margin-bottom: 0.5rem; font-size: 1.1rem;">
+                                Qualidade
+                            </strong>
+                            <span style="color: var(--gray-700); font-size: 1rem;">
+                                Em cada serviço prestado, garantindo excelência e satisfação.
+                            </span>
+                        </div>
+                        <div style="padding: 1.5rem; background: var(--white); border-radius: var(--radius-lg); border-left: 4px solid var(--mrrt-teal); box-shadow: var(--shadow-sm);">
+                            <strong style="color: var(--mrrt-teal); display: block; margin-bottom: 0.5rem; font-size: 1.1rem;">
+                                Reconhecimento
+                            </strong>
+                            <span style="color: var(--gray-700); font-size: 1rem;">
+                                Pelo impacto positivo de nosso trabalho nas comunidades atendidas.
+                            </span>
+                        </div>
+                        <div style="padding: 1.5rem; background: var(--white); border-radius: var(--radius-lg); border-left: 4px solid var(--mrrt-teal); box-shadow: var(--shadow-sm);">
+                            <strong style="color: var(--mrrt-teal); display: block; margin-bottom: 0.5rem; font-size: 1.1rem;">
+                                Credibilidade
+                            </strong>
+                            <span style="color: var(--gray-700); font-size: 1rem;">
+                                E confiança duradoura junto aos nossos clientes e parceiros.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONCLUSÃO -->
+                <div style="max-width: 900px; margin: 0 auto; padding: 3rem 2rem; background: var(--gradient-primary); border-radius: var(--radius-2xl); box-shadow: var(--shadow-2xl); text-align: center; position: relative; overflow: hidden;">
+                    <div style="position: relative; z-index: 1;">
+                        <h3 style="font-size: 2rem; font-weight: 800; color: var(--white); margin-bottom: 1.5rem;">
+                            Conclusão
+                        </h3>
+                        <p style="font-size: 1.2rem; line-height: 1.8; color: rgba(255, 255, 255, 0.95); font-weight: 500; margin: 0;">
+                            A MRRT existe para servir com propósito. Nossa missão é clara: <strong style="color: var(--mrrt-teal); font-weight: 700;">honrar a Deus, valorizar a família e gerar resultados que transformam vidas.</strong>
+                        </p>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -2128,22 +2316,7 @@
             </div>
         </section>
 
-        <!-- Lightbox Modal -->
-        <div class="lightbox-modal" id="lightbox-modal">
-            <button class="lightbox-close" id="lightbox-close">
-                <i class="fa-solid fa-times"></i>
-            </button>
-            <button class="lightbox-prev" id="lightbox-prev">
-                <i class="fa-solid fa-chevron-left"></i>
-            </button>
-            <button class="lightbox-next" id="lightbox-next">
-                <i class="fa-solid fa-chevron-right"></i>
-            </button>
-            <div class="lightbox-content" id="lightbox-content"></div>
-            <div class="lightbox-info" id="lightbox-info"></div>
-        </div>
-
-        <section id="contato" class="cta-section">
+        <section id="contato-home" class="cta-section">
             <div class="cta-content">
                 <h2 class="cta-title">Entre em Contato</h2>
                 <p class="cta-text">Nossa equipe está pronta para atender suas necessidades em saneamento com soluções inovadoras e eficientes.</p>
@@ -2169,6 +2342,239 @@
                 </div>
             </div>
         </section>
+        </div>
+
+        <!-- SEÇÃO QUEM SOMOS (mostra só quem somos) -->
+        <div id="page-quem-somos" class="page-section">
+        <section id="quem-somos" class="gallery-section" style="background: linear-gradient(180deg, var(--white) 0%, var(--mrrt-light) 100%); min-height: 100vh; padding-top: 8rem;">
+            <div class="gallery-container" style="max-width: 1200px;">
+                
+                <!-- TÍTULO PRINCIPAL -->
+                <div class="gallery-header">
+                    <h2 class="gallery-title">Quem Somos</h2>
+                </div>
+
+                <!-- SOBRE A MRRT -->
+                <div style="max-width: 900px; margin: 0 auto 4rem; padding: 3rem 2rem; background: var(--white); border-radius: var(--radius-2xl); box-shadow: var(--shadow-lg);">
+                    <h3 style="font-size: 2rem; font-weight: 800; color: var(--mrrt-dark); margin-bottom: 1.5rem; text-align: center; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                        Sobre a MRRT
+                    </h3>
+                    <p style="font-size: 1.1rem; color: var(--gray-700); line-height: 1.8; text-align: center;">
+                        A MRRT é uma empresa dedicada à prestação de serviços em saneamento básico, atuando com compromisso, excelência e responsabilidade. Nosso propósito é contribuir para a melhoria da qualidade de vida das pessoas e comunidades, promovendo um ambiente mais limpo, saudável e sustentável.
+                    </p>
+                </div>
+
+                <!-- O QUE FAZEMOS -->
+                <div style="max-width: 1200px; margin: 0 auto 4rem; padding: 3rem 2rem; background: linear-gradient(135deg, var(--mrrt-light) 0%, var(--white) 100%); border-radius: var(--radius-2xl); box-shadow: var(--shadow-lg); border: 2px solid var(--mrrt-teal-light);">
+                    <h3 style="font-size: 2rem; font-weight: 800; color: var(--mrrt-dark); margin-bottom: 1rem; text-align: center; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                        O Que Fazemos?
+                    </h3>
+                    <p style="text-align: center; margin-bottom: 2.5rem; font-size: 1.1rem; color: var(--gray-700);">
+                        Oferecemos soluções completas em saneamento básico, abrangendo:
+                    </p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                        <div style="background: var(--white); padding: 2rem 1.5rem; border-radius: var(--radius-xl); box-shadow: var(--shadow-md); border: 2px solid var(--gray-200); transition: all var(--transition-base); border-left: 4px solid var(--mrrt-teal);">
+                            <h4 style="font-size: 1.25rem; font-weight: 700; color: var(--mrrt-teal); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fa-solid fa-users"></i>
+                                Serviços Sociais
+                            </h4>
+                            <p style="font-size: 1rem; color: var(--gray-700); line-height: 1.7; margin: 0;">
+                                Apoio e orientação à comunidade, promovendo ações que fortalecem o relacionamento e o bem-estar das pessoas atendidas.
+                            </p>
+                        </div>
+                        <div style="background: var(--white); padding: 2rem 1.5rem; border-radius: var(--radius-xl); box-shadow: var(--shadow-md); border: 2px solid var(--gray-200); transition: all var(--transition-base); border-left: 4px solid var(--mrrt-teal);">
+                            <h4 style="font-size: 1.25rem; font-weight: 700; color: var(--mrrt-teal); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fa-solid fa-handshake"></i>
+                                Serviços Comerciais
+                            </h4>
+                            <p style="font-size: 1rem; color: var(--gray-700); line-height: 1.7; margin: 0;">
+                                Atendimento e suporte ao cliente com excelência, garantindo transparência e eficiência em todas as interações comerciais.
+                            </p>
+                        </div>
+                        <div style="background: var(--white); padding: 2rem 1.5rem; border-radius: var(--radius-xl); box-shadow: var(--shadow-md); border: 2px solid var(--gray-200); transition: all var(--transition-base); border-left: 4px solid var(--mrrt-teal);">
+                            <h4 style="font-size: 1.25rem; font-weight: 700; color: var(--mrrt-teal); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fa-solid fa-bullhorn"></i>
+                                Serviços de Comunicação
+                            </h4>
+                            <p style="font-size: 1rem; color: var(--gray-700); line-height: 1.7; margin: 0;">
+                                Transparência e clareza nas informações, mantendo canais abertos e eficientes de comunicação com clientes e comunidades.
+                            </p>
+                        </div>
+                        <div style="background: var(--white); padding: 2rem 1.5rem; border-radius: var(--radius-xl); box-shadow: var(--shadow-md); border: 2px solid var(--gray-200); transition: all var(--transition-base); border-left: 4px solid var(--mrrt-teal);">
+                            <h4 style="font-size: 1.25rem; font-weight: 700; color: var(--mrrt-teal); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <i class="fa-solid fa-helmet-safety"></i>
+                                Serviços Operacionais
+                            </h4>
+                            <p style="font-size: 1rem; color: var(--gray-700); line-height: 1.7; margin: 0;">
+                                Execução prática e eficiente em todas as frentes do saneamento, unindo técnica, dedicação e inovação para entregar resultados consistentes.
+                            </p>
+                        </div>
+                    </div>
+                    <p style="text-align: center; margin-top: 2rem; font-size: 1.05rem; color: var(--gray-700); font-style: italic;">
+                        Nosso trabalho busca unir técnica, dedicação e inovação para entregar resultados consistentes.
+                    </p>
+                </div>
+
+                <!-- NOSSOS PRINCÍPIOS -->
+                <div style="max-width: 1200px; margin: 0 auto 4rem; padding: 3rem 2rem; background: var(--white); border-radius: var(--radius-2xl); box-shadow: var(--shadow-lg);">
+                    <h3 style="font-size: 2rem; font-weight: 800; color: var(--mrrt-dark); margin-bottom: 1rem; text-align: center; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                        Nossos Princípios
+                    </h3>
+                    <p style="text-align: center; margin-bottom: 2.5rem; font-size: 1.1rem; color: var(--gray-700);">
+                        A MRRT é guiada por três fundamentos que norteiam todas as nossas ações:
+                    </p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                        <div style="background: linear-gradient(135deg, var(--mrrt-teal-light) 0%, var(--white) 100%); padding: 2.5rem 2rem; border-radius: var(--radius-xl); box-shadow: var(--shadow-md); border: 2px solid var(--mrrt-teal-light); text-align: center; transition: all var(--transition-base);">
+                            <div style="width: 80px; height: 80px; background: var(--gradient-teal); border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; box-shadow: var(--shadow-teal);">
+                                <i class="fa-solid fa-church" style="font-size: 2rem; color: var(--white);"></i>
+                            </div>
+                            <h4 style="font-size: 1.5rem; font-weight: 800; color: var(--mrrt-dark); margin-bottom: 1rem;">
+                                Deus
+                            </h4>
+                            <p style="font-size: 1rem; color: var(--gray-700); line-height: 1.7; margin: 0;">
+                                A base de nossos valores e decisões. Nossa fé nos orienta em cada escolha e ação, garantindo integridade e propósito em tudo que fazemos.
+                            </p>
+                        </div>
+                        <div style="background: linear-gradient(135deg, var(--mrrt-teal-light) 0%, var(--white) 100%); padding: 2.5rem 2rem; border-radius: var(--radius-xl); box-shadow: var(--shadow-md); border: 2px solid var(--mrrt-teal-light); text-align: center; transition: all var(--transition-base);">
+                            <div style="width: 80px; height: 80px; background: var(--gradient-teal); border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; box-shadow: var(--shadow-teal);">
+                                <i class="fa-solid fa-heart" style="font-size: 2rem; color: var(--white);"></i>
+                            </div>
+                            <h4 style="font-size: 1.5rem; font-weight: 800; color: var(--mrrt-dark); margin-bottom: 1rem;">
+                                Família
+                            </h4>
+                            <p style="font-size: 1rem; color: var(--gray-700); line-height: 1.7; margin: 0;">
+                                O alicerce da sociedade e inspiração para o cuidado com cada cliente e comunidade. Tratamos todos com o respeito e atenção que dedicamos à nossa própria família.
+                            </p>
+                        </div>
+                        <div style="background: linear-gradient(135deg, var(--mrrt-teal-light) 0%, var(--white) 100%); padding: 2.5rem 2rem; border-radius: var(--radius-xl); box-shadow: var(--shadow-md); border: 2px solid var(--mrrt-teal-light); text-align: center; transition: all var(--transition-base);">
+                            <div style="width: 80px; height: 80px; background: var(--gradient-teal); border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; box-shadow: var(--shadow-teal);">
+                                <i class="fa-solid fa-chart-line" style="font-size: 2rem; color: var(--white);"></i>
+                            </div>
+                            <h4 style="font-size: 1.5rem; font-weight: 800; color: var(--mrrt-dark); margin-bottom: 1rem;">
+                                Resultados
+                            </h4>
+                            <p style="font-size: 1rem; color: var(--gray-700); line-height: 1.7; margin: 0;">
+                                Compromisso em transformar esforço em conquistas visíveis e relevantes. Buscamos sempre a excelência e o impacto positivo em cada projeto.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- O QUE ESPERAMOS ALCANÇAR -->
+                <div style="max-width: 900px; margin: 0 auto 4rem; padding: 3rem 2rem; background: linear-gradient(135deg, var(--mrrt-light) 0%, var(--white) 100%); border-radius: var(--radius-2xl); box-shadow: var(--shadow-lg); border: 2px solid var(--mrrt-teal-light);">
+                    <h3 style="font-size: 2rem; font-weight: 800; color: var(--mrrt-dark); margin-bottom: 1.5rem; text-align: center; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                        O Que Esperamos Alcançar
+                    </h3>
+                    <p style="text-align: center; margin-bottom: 2rem; font-size: 1.1rem; color: var(--gray-700);">
+                        Nosso objetivo é crescer lado a lado com nossos clientes e parceiros, conquistando:
+                    </p>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div style="padding: 1.5rem; background: var(--white); border-radius: var(--radius-lg); border-left: 4px solid var(--mrrt-teal); box-shadow: var(--shadow-sm);">
+                            <strong style="color: var(--mrrt-teal); display: block; margin-bottom: 0.5rem; font-size: 1.1rem;">
+                                Qualidade
+                            </strong>
+                            <span style="color: var(--gray-700); font-size: 1rem;">
+                                Em cada serviço prestado, garantindo excelência e satisfação.
+                            </span>
+                        </div>
+                        <div style="padding: 1.5rem; background: var(--white); border-radius: var(--radius-lg); border-left: 4px solid var(--mrrt-teal); box-shadow: var(--shadow-sm);">
+                            <strong style="color: var(--mrrt-teal); display: block; margin-bottom: 0.5rem; font-size: 1.1rem;">
+                                Reconhecimento
+                            </strong>
+                            <span style="color: var(--gray-700); font-size: 1rem;">
+                                Pelo impacto positivo de nosso trabalho nas comunidades atendidas.
+                            </span>
+                        </div>
+                        <div style="padding: 1.5rem; background: var(--white); border-radius: var(--radius-lg); border-left: 4px solid var(--mrrt-teal); box-shadow: var(--shadow-sm);">
+                            <strong style="color: var(--mrrt-teal); display: block; margin-bottom: 0.5rem; font-size: 1.1rem;">
+                                Credibilidade
+                            </strong>
+                            <span style="color: var(--gray-700); font-size: 1rem;">
+                                E confiança duradoura junto aos nossos clientes e parceiros.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CONCLUSÃO -->
+                <div style="max-width: 900px; margin: 0 auto; padding: 3rem 2rem; background: var(--gradient-primary); border-radius: var(--radius-2xl); box-shadow: var(--shadow-2xl); text-align: center; position: relative; overflow: hidden;">
+                    <div style="position: relative; z-index: 1;">
+                        <h3 style="font-size: 2rem; font-weight: 800; color: var(--white); margin-bottom: 1.5rem;">
+                            Conclusão
+                        </h3>
+                        <p style="font-size: 1.2rem; line-height: 1.8; color: rgba(255, 255, 255, 0.95); font-weight: 500; margin: 0;">
+                            A MRRT existe para servir com propósito. Nossa missão é clara: <strong style="color: var(--mrrt-teal); font-weight: 700;">honrar a Deus, valorizar a família e gerar resultados que transformam vidas.</strong>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        </div>
+
+        <!-- SEÇÃO SERVIÇOS (mostra só serviços) -->
+        <div id="page-servicos" class="page-section">
+        <section id="servicos" class="services-section" style="min-height: 100vh; padding-top: 8rem;">
+            <div class="services-container">
+                <div class="services-content-wrapper"> 
+                    <div class="services-text-column">
+                        <h2>NOSSOS SERVIÇOS</h2>
+                        
+                        <div class="service-item">
+                            <h3>EXECUÇÃO OPERACIONAL</h3>
+                            <p>Implantação de redes, ligações de água e esgoto, e reposição de pavimentos com a máxima qualidade e segurança.</p>
+                        </div>
+                        
+                        <div class="service-item">
+                            <h3>DESENVOLVIMENTO DE APPS</h3>
+                            <p>Soluções web e mobile para otimização de serviços em campo, gestão de equipes, finanças e geração de relatórios.</p>
+                        </div>
+                        
+                        <div class="service-item">
+                            <h3>COMERCIAL E SOCIAL</h3>
+                            <p>Consultoria técnica, cadastro de redes, ações sociais e ambientais, garantindo o engajamento e a conformidade.</p>
+                        </div>
+
+                        <a href="#" data-page="contato" class="cta-button">Fale Conosco</a>
+                    </div>
+                </div>
+
+                <div class="services-image-column">
+                    <img src="assets/engenheiro-obra-nossos-servicos.jpg" alt="Engenheiro em obra com equipe" class="main-services-image">
+                </div>
+            </div>
+        </section>
+        </div>
+
+        <!-- SEÇÃO CONTATO (mostra só contato) -->
+        <div id="page-contato" class="page-section">
+        <section id="contato" class="cta-section" style="min-height: 100vh; padding-top: 8rem; display: flex; align-items: center;">
+            <div class="cta-content" style="width: 100%;">
+                <h2 class="cta-title">Entre em Contato</h2>
+                <p class="cta-text">Nossa equipe está pronta para atender suas necessidades em saneamento com soluções inovadoras e eficientes.</p>
+                <div style="max-width: 600px; margin: 3rem auto; padding: 3rem; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: var(--radius-xl); border: 2px solid rgba(255,255,255,0.2);">
+                    <div style="margin-bottom: 2rem; text-align: left;">
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; color: white;">
+                            <i class="fa-solid fa-phone" style="font-size: 1.5rem; color: var(--mrrt-teal);"></i>
+                            <span style="font-size: 1.1rem; font-weight: 600;">+55 11 97584-9265</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; color: white;">
+                            <i class="fa-solid fa-envelope" style="font-size: 1.5rem; color: var(--mrrt-teal);"></i>
+                            <span style="font-size: 1.1rem; font-weight: 600;">email@mrrtservicos.com</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 1rem; color: white;">
+                            <i class="fa-solid fa-location-dot" style="font-size: 1.5rem; color: var(--mrrt-teal);"></i>
+                            <span style="font-size: 1.1rem; font-weight: 600;">São Paulo / SP</span>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/5511975849265" target="_blank" class="cta-button cta-primary" style="display: inline-flex; align-items: center; gap: 0.75rem;">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span>Fale Conosco no WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        </div>
 
     </main>
 
@@ -2269,6 +2675,53 @@
                     }
                 }
             });
+
+            // ============================================
+            // SISTEMA DE NAVEGAÇÃO SPA (SINGLE PAGE APP)
+            // ============================================
+            function showPage(pageId) {
+                // Esconder todas as páginas
+                const allPages = document.querySelectorAll('.page-section');
+                allPages.forEach(page => {
+                    page.classList.remove('active');
+                });
+
+                // Mostrar a página selecionada
+                const targetPage = document.getElementById('page-' + pageId);
+                if (targetPage) {
+                    targetPage.classList.add('active');
+                    // Scroll para o topo
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+
+                // Atualizar links ativos no menu
+                const allNavLinks = document.querySelectorAll('[data-page]');
+                allNavLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('data-page') === pageId) {
+                        link.classList.add('active');
+                    }
+                });
+
+                // Fechar menu mobile se estiver aberto
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.style.display = 'none';
+                }
+            }
+
+            // Adicionar eventos aos links de navegação
+            const navLinks = document.querySelectorAll('[data-page]');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('data-page');
+                    showPage(pageId);
+                });
+            });
+
+            // Inicializar: mostrar home por padrão
+            showPage('home');
 
             // ANIMAÇÃO DE CONTAGEM DOS NÚMEROS
             const animateCounter = (element, target, duration = 2000) => {
