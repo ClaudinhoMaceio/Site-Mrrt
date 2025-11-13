@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MRRT - Serviços | Soluções em Saneamento</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Questrial&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style-base.css">
+    <link rel="stylesheet" href="css/servicos.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-content">
+            <a href="index.html" class="logo-container">
+                <img src="img/logo-mrrt-icon.png" alt="MRRT Icone Logo" class="header-logo-icon">
+                <img src="img/logo-mrrt-text.png" alt="Serviços em Saneamento" class="header-logo-text">
+            </a>
+            
+            <nav class="desktop-nav">
+                <a href="index.html">Home</a>
+                <a href="quem-somos.html">Quem Somos</a>
+                <a href="servicos.html" class="active">Serviços</a>
+                <a href="contato.html">Contato</a>
+            </nav>
+
+            <div class="header-controls">
+                <button id="search-toggle" class="search-toggle-button">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <div id="search-bar" class="search-bar hidden">
+                    <input type="text" id="search-input" placeholder="Buscar no site..." aria-label="Buscar no site">
+                    <button id="search-execute" class="search-execute-button">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+                
+                <button id="menu-button" class="menu-toggle-button">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <nav id="mobile-menu" class="mobile-nav hidden">
+            <a href="index.html">Home</a>
+            <a href="quem-somos.html">Quem Somos</a>
+            <a href="servicos.html" class="active">Serviços</a>
+            <a href="contato.html">Contato</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <h1>Nossas Soluções em Saneamento</h1>
+        </section>
+
+        <section id="servicos-detalhe" class="services-section">
+            <h2>Serviços Detalhados</h2>
+            
+            <div class="services-grid">
+                
+                <div class="service-card">
+                    <div 
+                        class="service-image"
+                        style="background-image: url('img/servico-apps-web.jpg');" 
+                        aria-label="Imagem ilustrativa de APPS WEB"
+                    ></div>
+                    <h3><i class="fa-solid fa-code icon-teal"></i> APPS WEB</h3>
+                    <p>Desenvolvimento de aplicativos para registro e baixa de serviços em campo; gestão de RH, financeiro e operacional; integração para inspeções e relatórios.</p>
+                </div>
+
+                <div class="service-card">
+                    <div 
+                        class="service-image"
+                        style="background-image: url('img/servico-operacional.jpg');" 
+                        aria-label="Imagem ilustrativa de Serviço Operacional"
+                    ></div>
+                    <h3><i class="fa-solid fa-helmet-safety icon-teal"></i> Operacional</h3>
+                    <p>Implantação de redes de água e esgoto (todos os diâmetros); instalação de caixas; ligações de água e esgoto; reposição de pavimentos (asfalto, cimento e pisos especiais); etc.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div 
+                        class="service-image"
+                        style="background-image: url('img/servico-comercial.jpg');" 
+                        aria-label="Imagem ilustrativa de Serviço Comercial"
+                    ></div>
+                    <h3><i class="fa-solid fa-handshake icon-teal"></i> Comercial</h3>
+                    <p>Cadastro técnico de redes de água e esgoto; cadastro no sistema SABESP; vendas de projetos; etc.</p>
+                </div>
+
+                <div class="service-card">
+                    <div 
+                        class="service-image"
+                        style="background-image: url('img/servico-comunicacao.jpg');" 
+                        aria-label="Imagem ilustrativa de Comunicação"
+                    ></div>
+                    <h3><i class="fa-solid fa-bullhorn icon-teal"></i> Comunicação</h3>
+                    <p>Panfletagem; mobilização; comunicação porta a porta; etc.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div 
+                        class="service-image"
+                        style="background-image: url('img/servico-social.jpg');" 
+                        aria-label="Imagem ilustrativa de Ação Social"
+                    ></div>
+                    <h3><i class="fa-solid fa-users-viewfinder icon-teal"></i> Social</h3>
+                    <p>Captação de parcerias; cadastro de adesão de clientes; palestras; ações sociais e ambientais; etc.</p>
+                </div>
+                
+            </div>
+        </section>
+        
+        <section class="cta-section">
+            <p>Tire suas dúvidas ou solicite um orçamento hoje mesmo!</p>
+            <a href="contato.html" class="cta-button">Ir para Contato</a>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <a href="index.html" class="logo-footer">
+                MRRT <span class="logo-subtext-footer">Serviços em Saneamento</span>
+            </a>
+            <div class="copyright">
+                <p>&copy; 2025 MRRT - Serviços em Saneamento. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script-base.js"></script>
+    <script src="js/servicos.js"></script> 
+</body>
+</html>

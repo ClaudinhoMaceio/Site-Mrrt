@@ -1,0 +1,23 @@
+# Configurações do Git para o projeto
+
+# Arquivos de texto devem usar LF (Unix)
+* text=auto eol=lf
+
+# Arquivos binários
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.mp4 binary
+*.webm binary
+*.ogg binary
+*.ico binary
+
+# Arquivos de código
+*.html text
+*.css text
+*.js text
+*.md text
+*.json text
+

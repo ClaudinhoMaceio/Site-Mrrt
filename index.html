@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MRRT - Serviços em Saneamento</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Questrial&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style-base.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/galeria.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-content">
+            <a href="index.html" class="logo-container">
+                <img src="img/logo-mrrt-icon.png" alt="MRRT Icone Logo" class="header-logo-icon">
+                <img src="img/logo-mrrt-text.png" alt="Serviços em Saneamento" class="header-logo-text">
+            </a>
+            
+            <nav class="desktop-nav">
+                <a href="index.html" class="active">Home</a>
+                <a href="quem-somos.html">Quem Somos</a>
+                <a href="servicos.html">Serviços</a>
+                <a href="contato.html">Contato</a>
+            </nav>
+
+            <div class="header-controls">
+                <button id="search-toggle" class="search-toggle-button">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <div id="search-bar" class="search-bar hidden">
+                    <input type="text" id="search-input" placeholder="Buscar no site..." aria-label="Buscar no site">
+                    <button id="search-execute" class="search-execute-button">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+                
+                <button id="menu-button" class="menu-toggle-button">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <nav id="mobile-menu" class="mobile-nav hidden">
+            <a href="index.html" class="active">Home</a>
+            <a href="quem-somos.html">Quem Somos</a>
+            <a href="servicos.html">Serviços</a>
+            <a href="contato.html">Contato</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section hero-home-background">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fa-solid fa-award"></i>
+                    <span>Excelência em Saneamento</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="hero-title-line hero-title-line-1">Transformando</span>
+                    <span class="hero-title-line hero-title-line-2">o Futuro do</span>
+                    <span class="hero-title-line hero-title-line-3 highlight-text">Saneamento</span>
+                </h1>
+                <p class="hero-subtitle">Soluções inovadoras que unem tecnologia, compromisso e propósito para criar um ambiente mais saudável e sustentável.</p>
+                <div class="hero-buttons">
+                    <a href="servicos.html" class="hero-btn hero-btn-primary">
+                        <span>Nossos Serviços</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="contato.html" class="hero-btn hero-btn-secondary">
+                        <span>Fale Conosco</span>
+                        <i class="fa-solid fa-phone"></i>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat-item">
+                        <div class="stat-number" data-target="23">0</div>
+                        <div class="stat-label">Mil Famílias Atendidas</div>
+                    </div>
+                    <div class="hero-stat-item">
+                        <div class="stat-number" data-target="100">0</div>
+                        <div class="stat-label">% de Compromisso</div>
+                    </div>
+                    <div class="hero-stat-item">
+                        <div class="stat-number" data-target="3">0</div>
+                        <div class="stat-label">Anos de Experiência</div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <span>Role para explorar</span>
+            </div>
+        </section>
+
+        <section class="mission-section">
+            <div class="mission-container">
+                
+                <div class="mission-text-large">
+                    <p class="mission-heading">
+                        <span class="line-1">Inovação</span>
+                        <span class="line-2">que move</span>
+                        <span class="line-3">o saneamento.</span>
+                        <span class="line-4">Com propósito.</span>
+                    </p>
+                </div>
+
+                <div class="mission-text-small">
+                    <p>A MRRT transforma o setor de saneamento por meio de tecnologia, eficiência e compromisso social, promovendo desenvolvimento sustentável, inovação e qualidade de vida nas comunidades onde atua.</p>
+                    
+                    <a href="quem-somos.html" class="mission-button">SOBRE A MRRT</a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="services-section">
+            <div class="services-container">
+                <div class="services-content-wrapper"> 
+                    <div class="services-text-column">
+                        <h2>NOSSOS SERVIÇOS</h2>
+                        
+                        <div class="service-item">
+                            <h3>EXECUÇÃO OPERACIONAL</h3>
+                            <p>Implantação de redes, ligações de água e esgoto, e reposição de pavimentos com a máxima qualidade e segurança.</p>
+                        </div>
+                        
+                        <div class="service-item">
+                            <h3>DESENVOLVIMENTO DE APPS</h3>
+                            <p>Soluções web e mobile para otimização de serviços em campo, gestão de equipes, finanças e geração de relatórios.</p>
+                        </div>
+                        
+                        <div class="service-item">
+                            <h3>COMERCIAL E SOCIAL</h3>
+                            <p>Consultoria técnica, cadastro de redes, ações sociais e ambientais, garantindo o engajamento e a conformidade.</p>
+                        </div>
+
+                        <a href="servicos.html" class="cta-button">Ver Todos os Serviços</a>
+                    </div>
+                </div>
+
+                <div class="services-image-column">
+                    <img src="assets/engenheiro-obra-nossos-servicos.jpg" alt="Engenheiro em obra com equipe" class="main-services-image">
+                </div>
+            </div>
+        </section>
+        
+        <section class="stats-section">
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-title">+23 mil</h3>
+                        <p class="stat-description">Famílias Atendidas</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-title">São Paulo</h3>
+                        <p class="stat-description">Nossa Área de Atuação</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-check-circle"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-title">100%</h3>
+                        <p class="stat-description">Compromisso com Qualidade</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3 class="stat-title">Excelência</h3>
+                        <p class="stat-description">Em Cada Projeto</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery-section" id="galeria">
+            <div class="gallery-container">
+                <div class="gallery-header">
+                    <h2 class="gallery-title">Galeria de Obras</h2>
+                    <p class="gallery-subtitle">Conheça nossos projetos e veja a qualidade do nosso trabalho em ação</p>
+                    <div class="gallery-filters">
+                        <button class="filter-btn active" data-filter="all">
+                            <i class="fa-solid fa-th"></i>
+                            <span>Todas</span>
+                        </button>
+                        <button class="filter-btn" data-filter="image">
+                            <i class="fa-solid fa-image"></i>
+                            <span>Fotos</span>
+                        </button>
+                        <button class="filter-btn" data-filter="video">
+                            <i class="fa-solid fa-video"></i>
+                            <span>Vídeos</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="gallery-grid" id="gallery-grid">
+                    <div class="gallery-loading">
+                        <i class="fa-solid fa-spinner fa-spin"></i>
+                        <p>Carregando galeria...</p>
+                    </div>
+                </div>
+                <div class="gallery-empty hidden">
+                    <i class="fa-solid fa-images"></i>
+                    <h3>Nenhuma mídia encontrada</h3>
+                    <p>Adicione fotos e vídeos na pasta <code>media/</code> para que apareçam aqui automaticamente.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox Modal -->
+        <div class="lightbox-modal" id="lightbox-modal">
+            <button class="lightbox-close" id="lightbox-close">
+                <i class="fa-solid fa-times"></i>
+            </button>
+            <button class="lightbox-prev" id="lightbox-prev">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="lightbox-next" id="lightbox-next">
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
+            <div class="lightbox-content" id="lightbox-content"></div>
+            <div class="lightbox-info" id="lightbox-info"></div>
+        </div>
+
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2 class="cta-title">Pronto para Transformar seu Projeto?</h2>
+                <p class="cta-text">Nossa equipe está pronta para atender suas necessidades em saneamento com soluções inovadoras e eficientes.</p>
+                <div class="cta-buttons">
+                    <a href="contato.html" class="cta-button cta-primary">
+                        <span>Fale Conosco Agora</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="servicos.html" class="cta-button cta-secondary">
+                        <span>Ver Nossos Serviços</span>
+                        <i class="fa-solid fa-list"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <a href="index.html" class="logo-footer">
+                MRRT <span class="logo-subtext-footer">Serviços em Saneamento</span>
+            </a>
+            <div class="copyright">
+                <p>&copy; 2025 MRRT - Serviços em Saneamento. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script-base.js"></script>
+    <script src="js/home.js"></script>
+    <script src="js/galeria.js"></script>
+</body>
+</html>

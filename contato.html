@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MRRT - Contato | Fale Conosco</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Questrial&family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style-base.css">
+    <link rel="stylesheet" href="css/contato.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-content">
+            <a href="index.html" class="logo-container">
+                <img src="img/logo-mrrt-icon.png" alt="MRRT Icone Logo" class="header-logo-icon">
+                <img src="img/logo-mrrt-text.png" alt="Serviços em Saneamento" class="header-logo-text">
+            </a>
+            
+            <nav class="desktop-nav">
+                <a href="index.html">Home</a>
+                <a href="quem-somos.html">Quem Somos</a>
+                <a href="servicos.html">Serviços</a>
+                <a href="contato.html" class="active">Contato</a>
+            </nav>
+
+            <div class="header-controls">
+                <button id="search-toggle" class="search-toggle-button">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <div id="search-bar" class="search-bar hidden">
+                    <input type="text" id="search-input" placeholder="Buscar no site..." aria-label="Buscar no site">
+                    <button id="search-execute" class="search-execute-button">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+                
+                <button id="menu-button" class="menu-toggle-button">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <nav id="mobile-menu" class="mobile-nav hidden">
+            <a href="index.html">Home</a>
+            <a href="quem-somos.html">Quem Somos</a>
+            <a href="servicos.html">Serviços</a>
+            <a href="contato.html" class="active">Contato</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <h1>Entre em Contato Conosco</h1>
+        </section>
+
+        <section class="contact-section">
+            
+            <div class="contact-info">
+                <h2>Informações de Contato</h2>
+                <p>Nossa equipe está pronta para atendê-lo e discutir suas necessidades em saneamento ou tecnologia.</p>
+                
+                <div class="info-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <p>email@mrrtservicos.com</p>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <p>+55 11 97584-9265</p>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p>São Paulo / SP</p>
+                </div>
+
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://wa.me/5511975849265" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <form id="contact-form" class="contact-form">
+                <h2>Envie uma Mensagem</h2>
+                <div class="form-group">
+                    <label for="name">Nome Completo</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Assunto</label>
+                    <select id="subject" name="subject" required>
+                        <option value="" disabled selected>Selecione um Assunto</option>
+                        <option value="orcamento">Solicitação de Orçamento</option>
+                        <option value="parceria">Parceria Comercial</option>
+                        <option value="duvidas">Dúvidas Gerais</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensagem</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Enviar Mensagem</button>
+                <p id="form-message" class="form-feedback hidden"></p>
+            </form>
+        </section>
+        
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <a href="index.html" class="logo-footer">
+                MRRT <span class="logo-subtext-footer">Serviços em Saneamento</span>
+            </a>
+            <div class="copyright">
+                <p>&copy; 2025 MRRT - Serviços em Saneamento. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script-base.js"></script>
+    <script src="js/contato.js"></script>
+</body>
+</html>
