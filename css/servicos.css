@@ -1,0 +1,242 @@
+/* Estilos específicos para a página de serviços */
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+/* --- ESTILOS ESPECÍFICOS DA SEÇÃO DE SERVIÇOS --- */
+
+.services-section {
+    padding: 5rem 2rem;
+    background: linear-gradient(180deg, var(--white) 0%, var(--mrrt-light) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.services-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(circle, rgba(0, 180, 166, 0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
+    pointer-events: none;
+}
+
+@media (max-width: 767px) {
+    .services-section {
+        padding: 3rem 1.5rem;
+    }
+}
+
+.services-section h2 {
+    font-size: 3.5rem;
+    font-weight: 900;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 4rem;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.services-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 5px;
+    background: var(--gradient-teal);
+    border-radius: var(--radius-full);
+}
+
+@media (max-width: 767px) {
+    .services-section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+    }
+}
+
+.services-grid {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 2rem; 
+}
+
+@media (min-width: 768px) { 
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+@media (min-width: 1024px) { 
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
+
+/* Card de Serviço Moderno */
+.service-card {
+    padding: 0;
+    background: var(--white);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-lg);
+    border: 2px solid var(--gray-200);
+    transition: all var(--transition-base);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: var(--gradient-teal);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--transition-base);
+}
+
+.service-card:hover {
+    box-shadow: var(--shadow-2xl);
+    transform: translateY(-10px);
+    border-color: var(--mrrt-teal);
+}
+
+.service-card:hover::before {
+    transform: scaleX(1);
+}
+
+.service-image {
+    width: 100%;
+    height: 220px;
+    border-radius: 0;
+    margin-bottom: 0;
+    box-shadow: none;
+    background-color: var(--gray-200);
+    background-size: cover;
+    background-position: center;
+    transition: transform var(--transition-slow);
+}
+
+.service-card:hover .service-image {
+    transform: scale(1.1);
+}
+
+.service-card h3 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--mrrt-dark);
+    margin: 0;
+    padding: 2rem 2rem 1rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--white);
+}
+
+.icon-teal {
+    color: var(--mrrt-teal);
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.service-card p {
+    color: var(--gray-700);
+    font-size: 1rem;
+    line-height: 1.7;
+    padding: 0 2rem 2rem 2rem;
+    margin: 0;
+    flex-grow: 1;
+}
+
+/* --- SEÇÃO CTA MODERNA (CALL TO ACTION) --- */
+.cta-section {
+    padding: 5rem 2rem;
+    background: var(--gradient-primary);
+    color: var(--white);
+    text-align: center;
+    margin: 4rem auto;
+    max-width: 1400px;
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-xl);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 180, 166, 0.15) 0%, transparent 70%);
+    animation: pulse 4s ease-in-out infinite;
+}
+
+.cta-section p {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.cta-button {
+    background: var(--white);
+    color: var(--mrrt-teal);
+    font-weight: 700;
+    padding: 1.25rem 3rem;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    transition: all var(--transition-base);
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    z-index: 1;
+}
+
+.cta-button:hover {
+    background: var(--mrrt-teal-light);
+    color: var(--mrrt-dark);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: var(--shadow-teal);
+}
+
+@media (max-width: 767px) {
+    .cta-section {
+        padding: 3rem 1.5rem;
+        margin: 3rem auto;
+    }
+    
+    .cta-section p {
+        font-size: 1.5rem;
+    }
+}

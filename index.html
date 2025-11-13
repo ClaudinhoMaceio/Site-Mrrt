@@ -1887,7 +1887,8 @@
                 <div class="gallery-empty hidden">
                     <i class="fa-solid fa-images"></i>
                     <h3>Nenhuma mídia encontrada</h3>
-                    <p>Adicione fotos e vídeos na pasta <code>fotos/</code> ou <code>media/</code> para que apareçam aqui automaticamente.</p>
+                    <p>Adicione fotos e vídeos na pasta <code>galeria/</code> e depois adicione o nome no arquivo <code>index.html</code> (procure por "LISTA DE FOTOS DA GALERIA").</p>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--gray-600);">Veja o arquivo <code>COMO-ADICIONAR-FOTOS.md</code> para instruções detalhadas.</p>
                 </div>
             </div>
         </section>
@@ -2134,25 +2135,28 @@
                 const imageExtensions = ['.jpg', '.jpeg', '.png', '.webp', '.gif'];
                 const videoExtensions = ['.mp4', '.webm', '.ogg'];
 
-                // LISTA DE FOTOS - ADICIONE SUAS FOTOS AQUI
-                // Você pode colocar fotos na raiz (ex: foto1.jpg) ou em pastas (ex: fotos/obra1.jpg)
-                // Para adicionar mais fotos, basta adicionar o caminho na lista abaixo:
+                // ============================================
+                // LISTA DE FOTOS DA GALERIA
+                // ============================================
+                // FOTOS QUE JÁ ESTÃO SENDO USADAS NO SISTEMA:
                 const mediaFiles = [
-                    // Imagens de serviços (exemplos)
+                    // Imagens de serviços
                     'img/servico-operacional.jpg',
                     'img/servico-comercial.jpg',
                     'img/servico-comunicacao.jpg',
                     'img/servico-social.jpg',
                     'img/servico-apps-web.jpg',
-                    'assets/engenheiro-obra-nossos-servicos.jpg',
                     
-                    // ADICIONE SUAS FOTOS DE OBRAS AQUI:
-                    // Exemplos de como adicionar:
-                    // 'fotos/obra1.jpg',           // Se você criar uma pasta "fotos"
-                    // 'fotos/obra2.jpg',
-                    // 'foto1.jpg',                // Ou direto na raiz do projeto
-                    // 'foto2.jpg',
-                    // 'media/video-obra.mp4',     // Vídeos também funcionam
+                    // Imagens de obras
+                    'assets/engenheiro-obra-nossos-servicos.jpg',
+                    'assets/hero-home-aegea.jpg',
+                    
+                    // ADICIONE SUAS FOTOS DE OBRAS AQUI (uma por linha):
+                    // Coloque suas fotos na pasta "galeria/" e depois adicione aqui:
+                    // 'galeria/obra1.jpg',
+                    // 'galeria/obra2.jpg',
+                    // 'galeria/obra3.jpg',
+                    // 'galeria/video-obra.mp4',  // Vídeos também funcionam
                 ];
 
                 function getMediaType(filename) {

@@ -1,0 +1,268 @@
+/* --- ESTILOS ESPECÍFICOS DO CONTATO (contact-section) --- */
+
+.contact-section {
+    max-width: 1400px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.contact-info, .contact-form {
+    flex: 1 1 100%;
+    padding: 3rem;
+    background: var(--white);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-xl);
+    border: 1px solid var(--gray-200);
+    transition: all var(--transition-base);
+}
+
+.contact-info:hover, .contact-form:hover {
+    box-shadow: var(--shadow-2xl);
+    transform: translateY(-5px);
+}
+
+@media (max-width: 767px) {
+    .contact-section {
+        margin: 3rem auto;
+        padding: 0 1.5rem;
+        gap: 2rem;
+    }
+    
+    .contact-info, .contact-form {
+        padding: 2rem 1.5rem;
+    }
+}
+
+@media (min-width: 900px) {
+    .contact-info {
+        flex: 1 1 35%;
+        background: linear-gradient(135deg, var(--mrrt-light) 0%, var(--white) 100%);
+        border: 2px solid var(--mrrt-teal-light);
+    }
+    .contact-form {
+        flex: 1 1 60%;
+        background: var(--white);
+    }
+}
+
+/* Estilos de Informação Modernos */
+.contact-info h2, .contact-form h2 {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.contact-info h2::after, .contact-form h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background: var(--gradient-teal);
+    border-radius: var(--radius-full);
+}
+.contact-info p {
+    margin-bottom: 2rem;
+    color: var(--gray-700);
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+}
+
+.info-item:hover {
+    background: var(--mrrt-teal-light);
+    border-color: var(--mrrt-teal);
+    transform: translateX(5px);
+}
+
+.info-item i {
+    color: var(--mrrt-teal);
+    font-size: 1.75rem;
+    margin-right: 1.25rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--mrrt-teal-light);
+    border-radius: var(--radius-md);
+    flex-shrink: 0;
+}
+
+.info-item p {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--mrrt-dark);
+}
+
+/* Estilos de Redes Sociais Modernos */
+.social-links {
+    margin-top: 3rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.social-links a {
+    color: var(--mrrt-teal);
+    font-size: 1.75rem;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--mrrt-teal-light);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-base);
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    background: var(--gradient-teal);
+    color: var(--white);
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: var(--shadow-teal);
+}
+
+
+/* Estilos do Formulário Moderno */
+.form-group {
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--mrrt-dark);
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-group input, .form-group textarea, .form-group select {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    border: 2px solid var(--gray-300);
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-family: var(--font-sans);
+    transition: all var(--transition-base);
+    background: var(--white);
+    color: var(--gray-800);
+}
+
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+    border-color: var(--mrrt-teal);
+    box-shadow: 0 0 0 4px rgba(0, 180, 166, 0.1);
+    outline: none;
+    transform: translateY(-2px);
+}
+
+.form-group input:hover, .form-group textarea:hover, .form-group select:hover {
+    border-color: var(--mrrt-teal);
+}
+.submit-button {
+    background: var(--gradient-primary);
+    color: var(--white);
+    font-weight: 700;
+    padding: 1.25rem 2rem;
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    width: 100%;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.submit-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-teal);
+    transition: left var(--transition-base);
+    z-index: -1;
+}
+
+.submit-button:hover::before {
+    left: 0;
+}
+
+.submit-button:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-teal);
+    color: var(--white);
+}
+
+.submit-button:active {
+    transform: translateY(-1px);
+}
+
+.submit-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.form-feedback {
+    margin-top: 1.5rem;
+    padding: 1rem 1.5rem;
+    border-radius: var(--radius-md);
+    text-align: center;
+    font-weight: 600;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-feedback.success {
+    background: linear-gradient(135deg, #d1e7dd 0%, #c3e6d0 100%);
+    color: #0f5132;
+    border: 2px solid #badbcc;
+}
+
+.form-feedback.error {
+    background: linear-gradient(135deg, #f8d7da 0%, #f5c2c7 100%);
+    color: #842029;
+    border: 2px solid #f1aeb5;
+}
+.hidden {
+    display: none;
+}

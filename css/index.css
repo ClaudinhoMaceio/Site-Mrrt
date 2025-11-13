@@ -1,0 +1,58 @@
+    /* Estilos para a página INICIAL (INDEX) */
+
+.welcome-section {
+    max-width: 1280px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+    text-align: center;
+}
+
+.welcome-section h2 {
+    font-size: 2.5rem;
+    color: var(--mrrt-teal);
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+.welcome-section p {
+    font-size: 1.1rem;
+    color: var(--gray-700);
+    max-width: 800px;
+    margin: 0 auto 3rem;
+}
+
+/* Destaque para serviços (Apenas um exemplo de como seria a seção principal) */
+.featured-services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding-bottom: 3rem;
+}
+
+.feature-card {
+    flex: 1 1 300px; /* Base para o card */
+    background: var(--mrrt-light);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-md);
+    text-align: left;
+    transition: transform 0.3s;
+    border-top: 4px solid var(--mrrt-teal);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-card i {
+    font-size: 2rem;
+    color: var(--mrrt-dark);
+    margin-bottom: 0.75rem;
+}
+
+.feature-card h3 {
+    font-size: 1.25rem;
+    color: var(--mrrt-dark);
+    margin-bottom: 0.5rem;
+}

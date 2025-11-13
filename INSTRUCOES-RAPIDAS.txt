@@ -1,0 +1,49 @@
+╔══════════════════════════════════════════════════════════════╗
+║          COMO ADICIONAR FOTOS NA GALERIA - RÁPIDO            ║
+╚══════════════════════════════════════════════════════════════╝
+
+✅ PASSO 1: COLOCAR FOTOS NA PASTA
+   └─> Coloque suas fotos em: appmrrt/galeria/
+   └─> Exemplo: galeria/obra1.jpg, galeria/obra2.jpg
+
+✅ PASSO 2: EDITAR index.html
+   └─> Abra o arquivo: index.html
+   └─> Procure por: "LISTA DE FOTOS DA GALERIA"
+   └─> Encontre a lista: const mediaFiles = [ ... ]
+   └─> Adicione os nomes das fotos assim:
+   
+       const mediaFiles = [
+           'galeria/obra1.jpg',    ← Remova o // e adicione aqui
+           'galeria/obra2.jpg',    ← Adicione mais fotos
+           'galeria/obra3.jpg',     ← Uma por linha
+       ];
+
+✅ PASSO 3: SALVAR E ENVIAR PARA GITHUB
+   └─> Salve o arquivo index.html
+   └─> No terminal ou GitHub Desktop:
+       git add .
+       git commit -m "Adicionei fotos"
+       git push
+
+═══════════════════════════════════════════════════════════════
+
+📁 ESTRUTURA:
+   appmrrt/
+   ├── index.html          ← Edite aqui
+   ├── galeria/            ← Coloque fotos aqui
+   │   ├── obra1.jpg
+   │   └── obra2.jpg
+   └── ...
+
+═══════════════════════════════════════════════════════════════
+
+⚠️ IMPORTANTE:
+   ✓ Use sempre: 'galeria/nome-da-foto.jpg'
+   ✓ Remova o // (comentário) antes do caminho
+   ✓ Use aspas simples: 'galeria/obra1.jpg'
+   ✓ Nomes sem espaços: obra1.jpg (não "obra 1.jpg")
+
+═══════════════════════════════════════════════════════════════
+
+📖 Para mais detalhes, veja: COMO-ADICIONAR-FOTOS.md
+

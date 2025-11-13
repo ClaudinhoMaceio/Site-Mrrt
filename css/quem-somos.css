@@ -1,0 +1,477 @@
+/* Estilos para a página QUEM SOMOS */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hero Section Moderno para "Quem Somos" */
+.hero-quem-somos {
+    background-image: url('../img/mulher-bebendo-agua.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 2rem;
+    text-align: left;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Overlay Moderno com Gradiente */
+.hero-quem-somos::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-overlay);
+    z-index: 1;
+}
+
+.hero-quem-somos::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 50%, rgba(0, 180, 166, 0.2) 0%, transparent 60%);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.hero-text-container {
+    max-width: 700px;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-2xl);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    position: relative;
+    z-index: 3;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.hero-quem-somos h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+    margin: 0;
+}
+
+@media (max-width: 767px) {
+    .hero-quem-somos {
+        padding: 0 1.5rem;
+        min-height: 400px;
+    }
+    
+    .hero-text-container {
+        padding: 2rem 1.5rem;
+    }
+    
+    .hero-quem-somos h1 {
+        font-size: 2.25rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .hero-quem-somos h1 {
+        font-size: 3.5rem; 
+    }
+    .hero-text-container {
+        padding: 3rem;
+        margin-left: 5%; 
+    }
+}
+
+
+.about-section {
+    max-width: 1400px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+@media (max-width: 767px) {
+    .about-section {
+        margin: 3rem auto;
+        padding: 0 1.5rem;
+        gap: 3rem;
+    }
+}
+
+/* ESTILO CENTRALIZADO E LIMPO para o bloco Quem Somos */
+.text-block {
+    background-color: transparent; 
+    border-left: none; 
+    border-radius: 0.5rem;
+    max-width: 900px;
+    margin: 0 auto; 
+    padding: 0 0 2rem 0;
+    text-align: center;
+}
+
+.text-block h2, .image-text-block h2 {
+    font-size: 2.75rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 2rem;
+    font-weight: 900;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.text-block h2::after, .image-text-block h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: var(--gradient-teal);
+    border-radius: var(--radius-full);
+}
+
+@media (max-width: 767px) {
+    .text-block h2, .image-text-block h2 {
+        font-size: 2rem;
+    }
+}
+
+.text-block p {
+    color: var(--mrrt-dark); /* Azul Marinho */
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+
+/* Estilos para o Bloco de Imagem e Texto (Água e Esgoto) */
+.image-text-block {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    padding: 3rem;
+    background: var(--white);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-xl);
+    border: 1px solid var(--gray-200);
+    align-items: center;
+    transition: all var(--transition-base);
+    overflow: hidden;
+    position: relative;
+}
+
+.image-text-block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--gradient-teal);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+}
+
+.image-text-block:hover {
+    box-shadow: var(--shadow-2xl);
+    transform: translateY(-5px);
+}
+
+.image-text-block:hover::before {
+    opacity: 1;
+}
+
+.image-text-block .image-container {
+    flex: 1 1 auto; 
+    width: 100%; 
+}
+
+.block-image {
+    width: 100%;
+    height: 300px; 
+    object-fit: cover; 
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.image-text-block .text-content {
+    flex: 1 1 auto; 
+    text-align: left;
+}
+
+.image-text-block p {
+    color: var(--gray-700); 
+}
+
+@media (min-width: 768px) {
+    .image-text-block {
+        flex-direction: row; 
+        text-align: left;
+    }
+    .image-text-block.reversed { 
+        flex-direction: row-reverse;
+    }
+    .image-text-block .image-container {
+        flex: 1 1 50%;
+    }
+    .image-text-block .text-content {
+        flex: 1 1 50%;
+    }
+}
+
+
+/* Estilos de Valores/Missão/Visão */
+.value-container {
+    padding: 4rem 3rem;
+    background: linear-gradient(135deg, var(--mrrt-light) 0%, var(--white) 100%);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-xl);
+    text-align: center;
+    border: 2px solid var(--mrrt-teal-light);
+    position: relative;
+    overflow: hidden;
+}
+
+.value-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-teal);
+}
+
+.value-container h2 {
+    font-size: 3rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 3rem;
+    font-weight: 900;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 1rem;
+}
+
+.value-container h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 4px;
+    background: var(--gradient-teal);
+    border-radius: var(--radius-full);
+}
+
+@media (max-width: 767px) {
+    .value-container {
+        padding: 3rem 2rem;
+    }
+    
+    .value-container h2 {
+        font-size: 2.25rem;
+    }
+}
+
+.value-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.value-item {
+    background: var(--white);
+    padding: 2.5rem 2rem;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    border: 2px solid var(--gray-200);
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.value-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--gradient-teal);
+    transform: scaleY(0);
+    transition: transform var(--transition-base);
+}
+
+.value-item:hover {
+    box-shadow: var(--shadow-xl);
+    transform: translateY(-5px);
+    border-color: var(--mrrt-teal);
+}
+
+.value-item:hover::before {
+    transform: scaleY(1);
+}
+
+.value-item h3 {
+    color: var(--mrrt-teal);
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.value-item i {
+    margin-right: 0.5rem;
+    font-size: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .value-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .value-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Layout especial para 4 itens (O Que Fazemos) */
+.services-list {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 1024px) {
+    .services-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1400px) {
+    .services-list {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* --- SEÇÃO NOSSA PRESENÇA --- */
+.presence-section {
+    background: var(--gradient-primary);
+    color: var(--white);
+    padding: 5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.presence-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(0, 180, 166, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(0, 180, 166, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.presence-content {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.presence-content h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: white;
+}
+
+.presence-content p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+}
+
+.stats-grid {
+    display: flex;
+    flex-direction: column; 
+    gap: 2rem;
+    justify-content: center;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 2.5rem 2rem;
+    border-radius: var(--radius-xl);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all var(--transition-base);
+    position: relative;
+    z-index: 1;
+}
+
+.stat-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.stat-number {
+    display: block;
+    font-size: 3.5rem; 
+    font-weight: 900;
+    line-height: 1;
+    color: var(--mrrt-teal); 
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+@media (min-width: 768px) {
+    .stats-grid {
+        flex-direction: row; 
+        gap: 3rem;
+    }
+}
