@@ -2,7 +2,37 @@
 <html lang="pt-BR" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="description" content="MRRT - Serviços em Saneamento. Soluções inovadoras que unem tecnologia, compromisso e propósito para criar um ambiente mais saudável e sustentável.">
+    <meta name="keywords" content="saneamento, água, esgoto, serviços, MRRT, São Paulo">
+    <meta name="author" content="MRRT - Serviços em Saneamento">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#00B4A6">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="MRRT">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="msapplication-TileColor" content="#00B4A6">
+    <meta name="msapplication-config" content="/browserconfig.xml">
+    
+    <!-- Favicon e Ícones -->
+    <link rel="icon" type="image/png" sizes="32x32" href="img/logo-mrrt-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/logo-mrrt-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/logo-mrrt-icon.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/logo-mrrt-icon.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/logo-mrrt-icon.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/logo-mrrt-icon.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/logo-mrrt-icon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/logo-mrrt-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/logo-mrrt-icon.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/logo-mrrt-icon.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="img/logo-mrrt-icon.png">
+    <link rel="mask-icon" href="img/logo-mrrt-icon.png" color="#00B4A6">
+    
+    <!-- Manifest PWA -->
+    <link rel="manifest" href="manifest.json">
+    
     <title>MRRT - Serviços em Saneamento</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -205,12 +235,26 @@
             color: var(--mrrt-dark);
             font-size: 1.5rem;
             cursor: pointer;
-            padding: 0.625rem 0.875rem;
+            padding: 0.75rem;
             border-radius: var(--radius-md);
             transition: all var(--transition-base);
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+            z-index: 1000;
+            -webkit-tap-highlight-color: rgba(0, 180, 166, 0.2);
+            touch-action: manipulation;
+            user-select: none;
+            min-width: 48px;
+            min-height: 48px;
+            width: 48px;
+            height: 48px;
+        }
+
+        .menu-toggle-button i {
+            font-size: 1.5rem;
+            pointer-events: none;
         }
 
         .menu-toggle-button:hover, .search-toggle-button:hover {
@@ -219,27 +263,58 @@
             transform: scale(1.05);
         }
 
+        .menu-toggle-button:active, .search-toggle-button:active {
+            background: var(--mrrt-teal);
+            color: var(--white);
+            transform: scale(0.95);
+        }
+
         .mobile-nav {
             display: none;
             background: var(--white);
             padding: 1rem 0;
             margin-top: 0.5rem;
             border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-lg);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             border: 1px solid var(--gray-200);
+            position: relative;
+            z-index: 999;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .mobile-nav:not(.hidden) {
+            display: block !important;
+        }
+
+        .mobile-nav.hidden {
+            display: none !important;
         }
 
         .mobile-nav a {
-            display: block;
-            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.25rem 1.5rem;
             color: var(--mrrt-dark);
             text-decoration: none;
             transition: all var(--transition-base);
             font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-size: 0.875rem;
-            border-left: 3px solid transparent;
+            font-size: 1rem;
+            border-left: 4px solid transparent;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .mobile-nav a:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-nav a i {
+            font-size: 1.25rem;
+            width: 24px;
+            text-align: center;
+            color: var(--mrrt-teal);
         }
 
         .mobile-nav a:hover,
@@ -247,7 +322,14 @@
             background-color: var(--mrrt-teal-light);
             color: var(--mrrt-teal);
             border-left-color: var(--mrrt-teal);
-            padding-left: 1.75rem;
+            padding-left: 2rem;
+            transform: translateX(5px);
+        }
+
+        .mobile-nav a:hover i,
+        .mobile-nav a.active i {
+            color: var(--mrrt-teal);
+            transform: scale(1.1);
         }
 
         .header-controls {
@@ -262,8 +344,22 @@
 
         @media (min-width: 768px) { 
             .desktop-nav { display: flex; }
-            .menu-toggle-button { display: none; }
+            .menu-toggle-button { display: none !important; }
             .search-toggle-button { display: block; }
+        }
+
+        @media (max-width: 767px) {
+            .desktop-nav { 
+                display: none !important; 
+            }
+            .menu-toggle-button { 
+                display: flex !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+            .mobile-nav.hidden {
+                display: none !important;
+            }
         }
 
         /* HERO SECTION */
@@ -290,6 +386,27 @@
             position: relative;
             z-index: 1;
             overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .hero-home-background {
+                background-attachment: scroll !important;
+                min-height: 600px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-home-background {
+                background-attachment: scroll !important;
+                min-height: 500px;
+            }
+        }
+
+        /* Força scroll em mobile para melhor performance */
+        @media (hover: none) and (pointer: coarse) {
+            .hero-home-background {
+                background-attachment: scroll !important;
+            }
         }
 
         .hero-home-background::before {
@@ -1245,6 +1362,24 @@
             display: none !important;
         }
 
+        /* Garantir que o menu mobile apareça quando não estiver hidden */
+        .mobile-nav:not(.hidden) {
+            display: block !important;
+        }
+
+        /* Melhorar área de toque do botão em mobile */
+        @media (max-width: 767px) {
+            .menu-toggle-button {
+                min-width: 48px;
+                min-height: 48px;
+                padding: 0.75rem;
+            }
+            
+            .header-controls {
+                gap: 10px;
+            }
+        }
+
         /* LIGHTBOX */
         .lightbox-modal {
             position: fixed;
@@ -1606,6 +1741,94 @@
             margin: 0;
         }
 
+        /* ============================================
+           MELHORIAS DE RESPONSIVIDADE
+           ============================================ */
+        
+        /* Telas muito pequenas (até 360px) */
+        @media (max-width: 360px) {
+            .hero-title {
+                font-size: 2rem !important;
+            }
+            .hero-subtitle {
+                font-size: 1rem !important;
+            }
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            .hero-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            .header-content {
+                padding: 0 1rem;
+            }
+            .main-header {
+                width: 98%;
+            }
+        }
+
+        /* Tablets pequenos (481px - 768px) */
+        @media (min-width: 481px) and (max-width: 768px) {
+            .hero-title {
+                font-size: 4rem;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Tablets grandes (769px - 1024px) */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .hero-title {
+                font-size: 5rem;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Desktop grande (1025px+) */
+        @media (min-width: 1025px) {
+            .gallery-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* Melhorias para touch devices */
+        @media (hover: none) and (pointer: coarse) {
+            .hero-btn, .cta-button, .mission-button {
+                min-height: 48px;
+                min-width: 48px;
+            }
+            .filter-btn {
+                min-height: 44px;
+                padding: 0.875rem 1.75rem;
+            }
+        }
+
+        /* Orientação paisagem em mobile */
+        @media (max-width: 767px) and (orientation: landscape) {
+            .hero-home-background {
+                min-height: 100vh;
+            }
+            .hero-content {
+                padding: 2rem 1rem;
+            }
+        }
+
+        /* Prevenir zoom em inputs (iOS) */
+        @media screen and (max-width: 768px) {
+            input[type="text"],
+            input[type="email"],
+            input[type="tel"],
+            textarea,
+            select {
+                font-size: 16px !important;
+            }
+        }
+
         /* ANIMAÇÕES */
         @keyframes fadeInUp {
             from {
@@ -1696,10 +1919,22 @@
         </div>
 
         <nav id="mobile-menu" class="mobile-nav hidden">
-            <a href="index.html" class="active">Home</a>
-            <a href="#quem-somos">Quem Somos</a>
-            <a href="#servicos">Serviços</a>
-            <a href="#contato">Contato</a>
+            <a href="index.html" class="active">
+                <i class="fa-solid fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#quem-somos">
+                <i class="fa-solid fa-users"></i>
+                <span>Quem Somos</span>
+            </a>
+            <a href="#servicos">
+                <i class="fa-solid fa-briefcase"></i>
+                <span>Serviços</span>
+            </a>
+            <a href="#contato">
+                <i class="fa-solid fa-envelope"></i>
+                <span>Contato</span>
+            </a>
         </nav>
     </header>
 
@@ -1954,49 +2189,83 @@
            ============================================ */
         
         document.addEventListener('DOMContentLoaded', () => {
-            // MENU MOBILE
+            // MENU MOBILE - VERSÃO SIMPLIFICADA E FUNCIONAL
             const menuButton = document.getElementById('menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
-
-            const toggleMenu = () => {
-                mobileMenu.classList.toggle('hidden');
-                if (!mobileMenu.classList.contains('hidden')) {
+            
+            if (!menuButton || !mobileMenu) {
+                console.error('Menu button or mobile menu not found!');
+                return;
+            }
+            
+            // Função para abrir/fechar menu
+            function toggleMenu() {
+                const isHidden = mobileMenu.classList.contains('hidden');
+                
+                if (isHidden) {
+                    // ABRIR MENU
+                    mobileMenu.classList.remove('hidden');
+                    mobileMenu.style.display = 'block';
                     mobileMenu.style.opacity = '0';
-                    mobileMenu.style.transform = 'translateY(-10px)';
-                    setTimeout(() => {
+                    mobileMenu.style.transform = 'translateY(-20px)';
+                    
+                    // Forçar reflow
+                    mobileMenu.offsetHeight;
+                    
+                    // Animar abertura
+                    requestAnimationFrame(() => {
                         mobileMenu.style.transition = 'all 0.3s ease-out';
                         mobileMenu.style.opacity = '1';
                         mobileMenu.style.transform = 'translateY(0)';
-                    }, 10);
+                    });
+                } else {
+                    // FECHAR MENU
+                    mobileMenu.style.transition = 'all 0.3s ease-out';
+                    mobileMenu.style.opacity = '0';
+                    mobileMenu.style.transform = 'translateY(-20px)';
+                    
+                    setTimeout(() => {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenu.style.display = 'none';
+                    }, 300);
                 }
-            };
-
-            if (menuButton) {
-                menuButton.addEventListener('click', toggleMenu);
             }
             
+            // Adicionar eventos ao botão
+            menuButton.onclick = function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                toggleMenu();
+                return false;
+            };
+            
+            // Evento touch para mobile
+            menuButton.ontouchend = function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                toggleMenu();
+                return false;
+            };
+            
+            // Fechar menu ao clicar em um link
             if (mobileMenu) {
-                mobileMenu.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        mobileMenu.style.transition = 'all 0.3s ease-out';
-                        mobileMenu.style.opacity = '0';
-                        mobileMenu.style.transform = 'translateY(-10px)';
+                const menuLinks = mobileMenu.querySelectorAll('a');
+                menuLinks.forEach(link => {
+                    link.onclick = function() {
                         setTimeout(() => {
                             mobileMenu.classList.add('hidden');
-                        }, 300);
-                    });
+                            mobileMenu.style.display = 'none';
+                        }, 100);
+                    };
                 });
             }
             
-            document.addEventListener('click', (e) => {
-                if (mobileMenu && !mobileMenu.contains(e.target) && menuButton && !menuButton.contains(e.target)) {
-                    if (!mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.style.transition = 'all 0.3s ease-out';
-                        mobileMenu.style.opacity = '0';
-                        mobileMenu.style.transform = 'translateY(-10px)';
-                        setTimeout(() => {
-                            mobileMenu.classList.add('hidden');
-                        }, 300);
+            // Fechar menu ao clicar fora
+            document.addEventListener('click', function(e) {
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    if (!mobileMenu.contains(e.target) && !menuButton.contains(e.target)) {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenu.style.display = 'none';
                     }
                 }
             });
@@ -2337,6 +2606,40 @@
 
                 loadGallery();
             }
+        });
+
+        // ============================================
+        // REGISTRO DO SERVICE WORKER (PWA)
+        // ============================================
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                const swPath = window.location.pathname.includes('/index.html') 
+                    ? './sw.js' 
+                    : '/sw.js';
+                navigator.serviceWorker.register(swPath)
+                    .then((registration) => {
+                        console.log('Service Worker registrado com sucesso:', registration.scope);
+                    })
+                    .catch((error) => {
+                        console.log('Falha ao registrar Service Worker:', error);
+                    });
+            });
+        }
+
+        // ============================================
+        // INSTALAÇÃO DO PWA
+        // ============================================
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            // Você pode mostrar um botão de instalação aqui se quiser
+        });
+
+        // Detectar se já está instalado
+        window.addEventListener('appinstalled', () => {
+            console.log('PWA instalado com sucesso!');
+            deferredPrompt = null;
         });
     </script>
 </body>
